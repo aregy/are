@@ -1,0 +1,26 @@
+Wowee
+
+# need IIS 8 and ASP.NET 4 in VS 2012
+dism /online /enable-feature /featurename:IIS-ASPNET45
+aspnet_regiis -i # in VS2012 developer command prompt
+
+---
+
+The assembly has been successfully created.
+C:\Users\ay\Desktop\App_Themes\App_Themes\ThemeAssembly23.dll
+
+
+To apply a custom theme assembly to your project, do the following.
+1. Add a reference to the assembly.
+2. Assign the assembly name to the customThemeAssemblies option in the DevExpress web.config section.
+3. Set a theme for a website via the DevExpress web.config section.
+
+<devExpress>
+    ...
+    <themes customThemeAssemblies="ThemeAssembly23" theme="HCSSTheme" … />
+</devExpress>
+
+Note that you can specify a theme of a website using our DevExpress ASP.NET Project Wizard. In this case, all points above will be done automatically.
+
+##NETWebforms
+##DevExpress Webforms Theming 13.1.5

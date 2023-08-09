@@ -1,0 +1,8 @@
+curl -LO https://github.com/kika/fixedsys/releases/download/v3.02.9/FSEX302-alt.ttf
+mv <FILE> /usr/share/fonts/truetype/
+fc-cache -f -v
+// check with `fc-list`
+
+##WSL
+##Ubuntu
+##Manual font installation in Linux

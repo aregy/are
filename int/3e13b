@@ -1,0 +1,21 @@
+[1] wtf
+
+Strangely, Ubuntu for WSL requires coordination with snap to install packages from the apt package manager. Ubuntu is probably not a serious enough distribution to avoid weekly hijinx (but the studio-audience loves it 😩).
+
+As answered in from [How do I install Firefox in WSL, when it requires snap, but snap doesn't work?](https://askubuntu.com/a/1444967/1308115)
+
+sudo snap remove firefox
+sudo apt remove firefox
+sudo add-apt-repository ppa:mozillateam/ppa
+
+-- /etc/apt/preferences.d/mozillateamppa --
+Package: firefox*
+Pin: release o=LP-PPA-mozillateam
+Pin-Priority: 501
+
+sudo apt update
+sudo apt install firefox # or firefox-esr
+
+##WSL
+##Ubuntu
+##Installing... *checks notes* Firefox[1] in Ubuntu

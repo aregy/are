@@ -1,0 +1,39 @@
+[Brent Westbrook - Emacs 29 released!](https://www.youtube.com/watch?v=iAjIoKqbmg8)
+(set-face-attribute 'default nil :height 120)
+
+::treesitter
+-- main.rs --
+fn main(){
+  println!("Hello out there");
+}
+
+M-x treesit-install-language-grammar
+// uses github.com/tree-sitter/tree-sitter-rust
+// git and gcc required
+
+-- init.el --
+(add-to-list 'exec-path "<PATH TO CARGO BIN>"{
+(setenv "PATH" (concat (getenv "PATH") ":<PATH TO CARGO BIN>" ))
+;; the equivalent of export PATH=$PATH:<PATH TO CARGO BIN>
+
+M-x recompile
+or 
+M-x compile
+
+::eglot
+M-x eglot
+# Note: without M-x company-mode much of this is painful
+
+::use-package
+// now included
+(add-to-list 'auto-mode-alist '("\\.rs\\'" . rust-ts-mode))
+(use-package rust-ts-mode
+  :ensure t
+  :hook ((rust-ts-mode . eglot-ensure)
+         (rust-ts-mode . company-mode))
+  :config (progn (add-to-list 'exec-path "<PATH TO CARGO BIN")
+  (setenv "PATH" (concat (getenv "PATH") "<PATH TO CARGO BIN>"))))
+(use-package company
+  :ensure t)
+##emacs
+##Emacs 29

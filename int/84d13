@@ -1,0 +1,6 @@
+xcode-select --install
+cc -c -o object.o main.c
+ld -o exe object.o -l System -syslibroot `xcrun -sdk macosx --show-sdk-path` -e _main -arch arm64
+// now in assembly
+as -o main.o main.s
+ld -o exe -l System -syslibroot `xcrun -sdk macosx --show-sdk-path` -e _main -arch arm64
